@@ -92,7 +92,11 @@
                                             <constraint firstAttribute="height" constant="30" id="vLf-7y-IJ9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="doneKeyPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="hfR-qe-JWK"/>
+                                            <action selector="guessedLetterFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="0Rs-Oz-1RV"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWb-7c-OjW">
                                         <rect key="frame" x="42" y="0.0" width="150" height="30"/>
@@ -157,6 +161,7 @@
                         <outlet property="flowerImageView" destination="w3A-Ug-6hd" id="EId-MS-qPm"/>
                         <outlet property="gameStatusMessageLabel" destination="EBk-FX-C4V" id="W3p-v7-tq8"/>
                         <outlet property="guessLetterButton" destination="HWb-7c-OjW" id="0Ph-Ko-WhT"/>
+                        <outlet property="guessedLetterTextField" destination="c4y-5M-5LH" id="U3n-XX-7HP"/>
                         <outlet property="playAgainButton" destination="O0c-Tv-ftR" id="kry-hU-XZZ"/>
                         <outlet property="wordBeingRevealedLabel" destination="lhz-J7-H6r" id="T8o-xX-IhR"/>
                         <outlet property="wordsGuessedLabel" destination="Pjf-Oz-HB6" id="vfH-3B-xyY"/>
