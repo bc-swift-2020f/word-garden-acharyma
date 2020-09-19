@@ -52,6 +52,7 @@ var replacementString = "Street"
 
 var standardAddress = address.replacingOccurrences(of: streetString, with: replacementString)
 print(standardAddress)
+print(address)
 
 
 //iterate
