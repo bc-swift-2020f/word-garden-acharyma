@@ -22,10 +22,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var flowerImageView: UIImageView!
     @IBOutlet weak var gameStatusMessageLabel: UILabel!
     
+    var lettersGuessed = ""
+    var revealedWord = ""
+    var wordToGuess = "SWIFT"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let text = guessedLetterTextField.text!
         guessLetterButton.isEnabled = !(text.isEmpty)
+        revealedWord = "_" + String(repeating: " _", count: wordToGuess.count-1)
+        wordBeingRevealedLabel.text = revealedWord
     }
     
     func updateUIAfterGuess(){
@@ -41,10 +47,39 @@ class ViewController: UIViewController {
         guessLetterButton.isEnabled = !(sender.text!.isEmpty)
     }
     @IBAction func doneKeyPressed(_ sender: UITextField) {
+        lettersGuessed = lettersGuessed + sender.text!
+        revealedWord = ""
+        print(lettersGuessed)
+        for letter in wordToGuess{
+            if lettersGuessed.contains(letter){
+                revealedWord = revealedWord + "\(letter) "
+            }
+            else{
+                revealedWord = revealedWord + "_ "
+            }
+        }
+        revealedWord.removeLast()
+        print(revealedWord)
+        wordBeingRevealedLabel.text = revealedWord
+        
         updateUIAfterGuess()
     }
     @IBAction func guessLetterButtonPressed(_ sender: UIButton) {
         //dismisses keyboard
+        lettersGuessed = lettersGuessed + guessedLetterTextField.text!
+        revealedWord = ""
+        print(lettersGuessed)
+        for letter in wordToGuess{
+            if lettersGuessed.contains(letter){
+                revealedWord = revealedWord + "\(letter) "
+            }
+            else{
+                revealedWord = revealedWord + "_ "
+            }
+        }
+        revealedWord.removeLast()
+        print(revealedWord)
+        wordBeingRevealedLabel.text = revealedWord
         updateUIAfterGuess()
     }
     
